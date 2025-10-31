@@ -1,6 +1,6 @@
 {
-  "id": "7deb6452-1205-4fde-8d25-4765a970e038",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "afed8afc-01cf-4d95-9184-d3734c4f09df",
+  "prevId": "7deb6452-1205-4fde-8d25-4765a970e038",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -53,6 +53,12 @@
         },
         "query_params": {
           "name": "query_params",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "headers": {
+          "name": "headers",
           "type": "jsonb",
           "primaryKey": false,
           "notNull": true

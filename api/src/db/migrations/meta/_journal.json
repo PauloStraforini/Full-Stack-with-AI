@@ -8,6 +8,13 @@
       "when": 1761585554530,
       "tag": "0000_purple_princess_powerful",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1761930472815,
+      "tag": "0001_worthless_smiling_tiger",
+      "breakpoints": true
     }
   ]
 }
