@@ -1,18 +1,18 @@
-import { z } from 'zod'
-import { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
+import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { createSelectSchema } from 'drizzle-zod'
+import { z } from 'zod'
 import { webhooks } from '@/db/schema'
 import { db } from '@/db'
 import { eq } from 'drizzle-orm'
 
-export const deleteWebhooks: FastifyPluginAsyncZod = async (app) => {
+export const deleteWebhook: FastifyPluginAsyncZod = async (app) => {
   app.delete(
     '/api/webhooks/:id',
     {
       schema: {
-        summary: 'Delete a specific Webhook by ID',
+        summary: 'Delete a specific webhook by ID',
         tags: ['Webhooks'],
-        querystring: z.object({
+        params: z.object({
           id: z.uuidv7(),
         }),
         response: {
@@ -22,7 +22,7 @@ export const deleteWebhooks: FastifyPluginAsyncZod = async (app) => {
       },
     },
     async (request, reply) => {
-      const { id } = request.query
+      const { id } = request.params
 
       const result = await db
         .delete(webhooks)
@@ -30,7 +30,7 @@ export const deleteWebhooks: FastifyPluginAsyncZod = async (app) => {
         .returning()
 
       if (result.length === 0) {
-        return reply.status(404).send({ message: 'Webhook not found' })
+        return reply.status(404).send({ message: 'Webhook not found.' })
       }
 
       return reply.status(204).send()
