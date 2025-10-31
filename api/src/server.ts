@@ -10,7 +10,7 @@ import { fastifyCors } from '@fastify/cors'
 import ScalarApiReference from '@scalar/fastify-api-reference'
 import { listWebhooks } from './routes/list-webhooks'
 import { env } from './env'
-import { getWebhooks } from './routes/get-webhook'
+import { getWebhook } from './routes/get-webhook'
 import { deleteWebhooks } from './routes/delete-webhook'
 import { captureWebhook } from './routes/capture-webhook'
 
@@ -40,7 +40,7 @@ app.register(ScalarApiReference, {
 })
 
 app.register(listWebhooks)
-app.register(getWebhooks)
+app.register(getWebhook)
 app.register(deleteWebhooks)
 app.register(captureWebhook)
 
